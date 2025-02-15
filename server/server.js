@@ -11,9 +11,14 @@ const app = express();
 
 app.use(bodyParser.json({ limit: "10mb" }));
 app.use(bodyParser.urlencoded({ limit: "10mb", extended: true }));
-app.use(cors());
 
-app.use(cors());
+const corsOptions = {
+  origin: "https://banao-task-2-pi.vercel.app",
+  methods: ["GET", "POST", "PUT", "DELETE"],
+  credentials: true,
+};
+
+app.use(cors(corsOptions));
 
 app.use(express.json());
 
